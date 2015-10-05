@@ -47,14 +47,6 @@ class Dossier::MultiReport
     @renderer ||= Dossier::Renderer.new(self)
   end
 
-  def initialize_reports
-    @reports ||= self.class.reports.map { |report| 
-      report.new(options).tap { |r|
-        r.parent = self
-      }
-    }
-  end
-
   delegate :render, to: :renderer
 
   class UnsupportedFormatError < StandardError
