@@ -10,10 +10,6 @@ module Dossier
       respond_with(report)
     end
 
-    def multi
-      respond_with(report)
-    end
-
     private
 
     def report_class
