@@ -5,7 +5,7 @@ module Dossier
     argument :report_name, type: :string, default: "show" 
 
     def generate_view
-      template "show.html.haml", Rails.root.join("app/" "views/" "dossier/reports/#{report_name}.html.haml")
+      template "show.html.erb", Rails.root.join("app/" "views/" "dossier/reports/#{report_name}.html.erb")
     end
 
   end

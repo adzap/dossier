@@ -11,7 +11,7 @@ describe Dossier::ViewsGenerator, type: :generator  do
   let(:cleanup)   { FileUtils.rm_f file_path }
 
   context "with no arguments or options" do
-    let(:file) { 'show.html.haml' }
+    let(:file) { 'show.html.erb' }
 
     before(:each) { run_generator }
 
@@ -21,7 +21,7 @@ describe Dossier::ViewsGenerator, type: :generator  do
   end
 
   context "with_args: account_tracker" do
-    let(:file) { 'account_tracker.html.haml' }
+    let(:file) { 'account_tracker.html.erb' }
 
     before(:each) { run_generator %w[account_tracker] }
 

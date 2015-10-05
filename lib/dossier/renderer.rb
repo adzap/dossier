@@ -36,7 +36,7 @@ module Dossier
     end
 
     def default_template_path
-      template_path('show')
+      template_path('single')
     end
 
     class Engine < AbstractController::Base

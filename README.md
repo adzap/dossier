@@ -165,7 +165,7 @@ You may want to specify parameters for a report: which columns to show, a range 
 You can pass these options by hardcoding them into a link, or you can allow users to customize a report with a form. For example:
 
 ```ruby
-# app/views/dossier/reports/employee.html.haml
+# app/views/dossier/reports/employee.html.erb
 
 = form_for report, as: :options, url: url_for, html: {method: :get} do |f|
   = f.label "Salary greater than:"
@@ -192,7 +192,7 @@ To further customize your results view, run the generator provided. The default 
 ```ruby
 rails generate dossier:views
 ```
-You may pass a filename as an argument. This example creates 'app/views/dossier/reports/account_tracker.html.haml'.
+You may pass a filename as an argument. This example creates 'app/views/dossier/reports/account_tracker.html.erb'.
 
 ```ruby
 rails generate dossier:views account_tracker
@@ -226,7 +226,7 @@ class ProjectsController < ApplicationController
 end
 ```
 
-```haml
+```erb
 .span6
   = render template: 'dossier/reports/show', locals: {report: @project_status_report.run}
 .span6
