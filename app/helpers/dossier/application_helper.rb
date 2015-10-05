@@ -7,7 +7,7 @@ module Dossier
 
     def render_options(report)
       return if report.parent
-      render "#{Dossier.templates_path}/#{report.report_name}/options", report: report
+      render "#{Dossier.configuration.templates_path}/#{report.report_name}/options", report: report
     rescue ActionView::MissingTemplate
     end
 
