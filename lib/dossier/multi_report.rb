@@ -43,11 +43,19 @@ class Dossier::MultiReport
     @renderer ||= Dossier::Renderer.new(self)
   end
 
+  def initialize_reports
+    @reports ||= self.class.reports.map { |report| 
+      report.new(options).tap { |r|
+        r.parent = self
+      }
+    }
+  end
+
   delegate :render, to: :renderer
 
   class UnsupportedFormatError < StandardError
     def initialize(format)
-      super "Dossier::MultiReport only supports rendering in HTML format (you tried #{format})"
+      super "Dossier::MultiReport only supports rendering in #{Dossier.configuration.multi_report_formats.joins(', ')} formats (you tried #{format})"
     end
   end
 end

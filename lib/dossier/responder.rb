@@ -24,7 +24,7 @@ module Dossier
     end
 
     def respond
-      multi_report_html_only!
+      multi_report_supported_formats_only!
       super
     end
     
@@ -43,8 +43,8 @@ module Dossier
       "#{report.class.filename}.#{format}"
     end
 
-    def multi_report_html_only!
-      if report.is_a?(Dossier::MultiReport) and format.to_s != 'html'
+    def multi_report_supported_formats_only!
+      if report.is_a?(Dossier::MultiReport) && !format.to_s.in?(Dossier.configuration.multi_report_formats)
         raise Dossier::MultiReport::UnsupportedFormatError.new(format)
       end
     end

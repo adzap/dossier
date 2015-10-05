@@ -28,7 +28,7 @@ module Dossier
     end
 
     def template_path(template)
-      "dossier/reports/#{template}"
+      "#{Dossier.configuration.templates_path}/#{template}"
     end
 
     def custom_template_path

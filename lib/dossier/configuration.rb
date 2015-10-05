@@ -6,10 +6,13 @@ module Dossier
 
     DB_KEY = 'DATABASE_URL'.freeze
 
-    attr_accessor :config_path, :client
+    attr_accessor :config_path, :templates_path, :client, :formats, :multi_report_formats
 
     def initialize
       @config_path = Rails.root.join('config', 'dossier.yml')
+      @templates_path = "dossier/reports"
+      @formats = [ :html, :json, :csv, :xls ]
+      @multi_report_formats = [ 'html' ]
       setup_client!
     end
    
