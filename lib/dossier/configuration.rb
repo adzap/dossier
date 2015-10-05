@@ -33,7 +33,7 @@ module Dossier
     private
 
     def setup_client!
-      @client = Dossier::Client.new(connection_options)
+      @client ||= Dossier::Client.new(connection_options)
     end
 
     def raise_empty_conn_config
