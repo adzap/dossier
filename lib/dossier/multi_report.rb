@@ -10,6 +10,10 @@ class Dossier::MultiReport
   def self.combine(*reports)
     self.reports = reports
   end
+  
+  def self.filename
+    "#{report_name.parameterize}-report_#{Time.now.strftime('%Y-%m-%d_%H-%M-%S-%Z')}"
+  end
 
   def initialize(options = {})
     self.options = options.dup.with_indifferent_access
