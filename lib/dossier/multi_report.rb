@@ -12,7 +12,7 @@ class Dossier::MultiReport
   end
   
   def self.filename
-    "#{report_name.parameterize}-report_#{Time.now.strftime('%Y-%m-%d_%H-%M-%S-%Z')}"
+    "#{report_name.parameterize}-report_#{Time.current.strftime('%Y-%m-%d_%H-%M-%S-%Z')}"
   end
 
   def initialize(options = {})
