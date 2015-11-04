@@ -18,12 +18,12 @@ module Dossier
     end
 
     def body
-      size = rows.length - report.options[:footer].to_i
+      size = rows.length - report.footer_row_count
       @body ||= size < 0 ? [] : rows.first(size)
     end
 
     def footers
-      @footer ||= rows.last(report.options[:footer].to_i)
+      @footer ||= rows.last(report.footer_row_count)
     end
 
     def rows

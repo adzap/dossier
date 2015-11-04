@@ -10,8 +10,10 @@ module Dossier
 
     class_attribute :formatter
     class_attribute :template
+    class_attribute :footer_row_count
 
     self.formatter = Dossier::Formatter
+    self.footer_row_count = 0
 
     delegate :formatter, :template, to: "self.class"
 
