@@ -14,7 +14,6 @@ module Dossier
       @formats = [ :html, :json, :csv, :xls ]
       @multi_report_formats = [ 'html' ]
       @share_connection = true
-      setup_client!
     end
    
     def connection_options
@@ -32,11 +31,11 @@ module Dossier
       Dossier::ConnectionUrl.new.to_hash if ENV.has_key? DB_KEY
     end
 
-    private
-
     def setup_client!
       @client ||= Dossier::Client.new(connection_options)
     end
+
+    private
 
     def raise_empty_conn_config
       raise ConfigurationMissingError.new(
