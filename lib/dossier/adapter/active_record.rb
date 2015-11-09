@@ -23,6 +23,8 @@ module Dossier
       private
 
       def active_record_connection
+        return ::ActiveRecord::Base.connection if options[:share_connection]
+        
         @abstract_class = Class.new(::ActiveRecord::Base) do
           self.abstract_class = true
           
