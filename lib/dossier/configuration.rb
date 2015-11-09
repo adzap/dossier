@@ -31,6 +31,10 @@ module Dossier
       Dossier::ConnectionUrl.new.to_hash if ENV.has_key? DB_KEY
     end
 
+    def client
+      @client ||= setup_client!
+    end
+
     def setup_client!
       @client ||= Dossier::Client.new(connection_options)
     end
